@@ -1,57 +1,49 @@
-# *Erdos and Aliens*
+# Erdos and Aliens
 
-*For instructions, consult the [CIS 1951 website](https://www.seas.upenn.edu/~cis1951/24fa/assignments/hw/hw1).*
-
-## Explanations
-
-**What locations/rooms does your game have?**
-
-1. Entry Room
-2. Erdos House
-3. Hallway
-4. Erdos Laptop
-5. Aliens
-6. 
-7. 
-8. 
-9. 
-10. 
-
-**What items does your game have?**
-
-1. Answer Key
-2. AI generated solution
-
-**Explain how your code is designed. In particular, describe how you used structs or enums, as well as protocols.**
-
-The game is designed using several `structs` to represent `Locations` and `Items`. It uses the `Interactable` protocol for items like the "Answer Key" and the "AI-generated solution," which provide custom interactions when picked up. The game world is made of locations, each with their name, description, and possible directions the player can move in. The game logic allows the player to move between these locations, pick up items, and solve a puzzle to save Earth by entering the correct password.
-
-**How do you use optionals in your program?**
-
-Optionals are used for the `playerItem` (to store an item if the player picks one up) and for the `currLocation.item` (to indicate whether an item is available in the current location). These optionals handle scenarios where no item is present.
-
-
-**What extra credit features did you implement, if any?**
-
-None 
-
-## Endings
-
-### Ending 1 (Win: The player saves Earth by giving the correct answer)
-
-```
-north east north enterpassword Kolmogrov take east useitem
-```
-
-### Ending 2 (Lose: The player gives the wrong answer and Earth is destroyed)
-
-```
-north east north enterpassword wrongpass take east useitem
-```
+**Erdos and Aliens** is a text-based adventure game where the player must save Earth from alien destruction by solving the Ramsey number problem. Navigate through different rooms, solve puzzles, and interact with items to save the planet from doom!
 
 ---
 
-## Commands
+## Game Overview
+
+**Objective:**  
+Aliens have invaded Earth and threaten to obliterate it unless the Ramsey number for red five and blue five is provided. As the player, you must navigate through different rooms, gather information, and find the correct solution before it’s too late.
+
+---
+
+## Locations/Rooms
+
+The game features five key locations that the player must traverse:
+
+1. **Entry Room**: The starting point of your adventure.
+2. **Erdos House**: Meet Erdos and learn more about the alien's challenge.
+3. **Hallway**: A passage that leads to critical places.
+4. **Erdos Laptop**: The location where you must enter the password to retrieve the key.
+5. **Aliens**: The final confrontation. Use the correct answer to save Earth or face its destruction.
+
+---
+
+## Items
+
+During the game, players will interact with two key items:
+
+1. **Answer Key**: The correct solution to the Ramsey number problem. This will save Earth.
+2. **AI-Generated Solution**: A wrong answer that will lead to Earth's destruction.
+
+---
+
+## Code Design
+
+The game is designed using a combination of Swift `structs`, `enums`, and `protocols`:
+
+- **Structs** are used to represent both `Locations` and `Items`. Each location has a name, description, directions, and an optional item.
+- The **`Interactable` protocol** ensures that items like the Answer Key and AI-Generated Solution have a name, description, and an interaction behavior when picked up.
+- **Optionals** are used for the `playerItem` (the item the player picks up) and the `currLocation.item` (whether an item is available in the current location).
+- Game logic controls player movement, item interaction, and the flow of the narrative based on player input.
+
+---
+
+## Available Commands
 
 ### Movement Commands:
 - **north**, **south**, **east**, **west**: Move in the specified direction between rooms.
@@ -63,3 +55,16 @@ north east north enterpassword wrongpass take east useitem
 - **useitem**: Use the item (key or wrong answer) to interact with the aliens (only usable in the Aliens room).
 - **look**: Look around the current room for information.
 - **help**: List the available commands.
+
+---
+
+## How to Play
+
+1. **Download or Clone the Repository**:  
+   Clone this repository to your local machine using:
+   ```bash
+   git clone https://github.com/yourusername/ErdosAndAliens.git
+   ```
+2. **Run the Game:**
+   Open the project in Xcode (if using the Playground format) and follow the game's instructions to navigate through the world, interact with objects, and solve puzzles.
+   
